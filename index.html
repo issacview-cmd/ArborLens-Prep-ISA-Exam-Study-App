@@ -38,8 +38,6 @@
       background: var(--off-white);
       color: var(--text-dark);
       min-height: 100vh;
-      max-width: 480px;
-      margin: 0 auto;
     }
 
     /* HEADER */
@@ -50,6 +48,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .header-top {
@@ -89,6 +92,7 @@
       border-radius: 20px;
       padding: 6px 14px;
       text-align: center;
+      min-width: 90px;
     }
 
     .overall-pct {
@@ -104,7 +108,13 @@
       text-transform: uppercase;
     }
 
-    /* OVERALL PROGRESS BAR */
+    .readiness-status {
+      font-size: 10px;
+      font-weight: 600;
+      margin-top: 3px;
+      letter-spacing: 0.03em;
+    }
+
     .overall-bar-wrap {
       margin-top: 12px;
       height: 4px;
@@ -120,9 +130,33 @@
       transition: width 0.8s ease;
     }
 
-    /* MAIN CONTENT */
-    .main {
+    /* LAYOUT */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
       padding: 20px 16px 100px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .page-wrap {
+        grid-template-columns: 1fr 380px;
+        grid-template-rows: auto;
+        align-items: start;
+        padding: 28px 24px 60px;
+      }
+
+      .left-col {
+        grid-column: 1;
+      }
+
+      .right-col {
+        grid-column: 2;
+        position: sticky;
+        top: 100px;
+      }
     }
 
     /* SECTION LABEL */
@@ -188,6 +222,7 @@
     .domain-card:hover {
       transform: translateY(-1px);
       box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      border-color: var(--light-gray);
     }
 
     .domain-card:active {
@@ -262,24 +297,36 @@
     .tier-strong { color: var(--strong); }
     .tier-exam-ready { color: var(--exam-ready); }
 
-    /* STATS ROW */
-    .stats-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
+    /* STATS CARD */
+    .stats-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
     }
 
-    .stat-card {
-      flex: 1;
-      background: white;
-      border-radius: 10px;
-      padding: 12px;
+    .stats-card-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat-item {
       text-align: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
 
     .stat-number {
-      font-size: 22px;
+      font-size: 26px;
       font-weight: 700;
       color: var(--green-primary);
       line-height: 1;
@@ -292,18 +339,75 @@
       letter-spacing: 0.03em;
     }
 
+    /* WELCOME CARD - desktop only */
+    .welcome-card {
+      background: var(--green-primary);
+      color: white;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .welcome-card {
+        display: block;
+      }
+    }
+
+    .welcome-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .welcome-body {
+      font-size: 13px;
+      opacity: 0.85;
+      line-height: 1.6;
+    }
+
+    /* NEXT UP CARD */
+    .next-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      margin-bottom: 16px;
+    }
+
+    .next-card-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .next-domain {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .next-domain-sub {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
     /* FOOTER */
     .footer {
       position: fixed;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 480px;
+      left: 0;
+      right: 0;
       background: white;
       border-top: 1px solid var(--light-gray);
       padding: 12px 16px 20px;
       text-align: center;
+      z-index: 100;
     }
 
     .support-button {
@@ -336,68 +440,144 @@
       line-height: 1.4;
       padding: 0 8px;
     }
+
+    @media (min-width: 768px) {
+      .footer {
+        padding: 12px 24px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .footer-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .free-label {
+        margin-bottom: 0;
+      }
+
+      .disclaimer {
+        text-align: right;
+        padding: 0;
+        max-width: 400px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
   <header class="header">
-    <div class="header-top">
-      <div class="logo-row">
-        <span class="logo-icon">🌳</span>
-        <div>
-          <div class="logo-text">ArborLens Prep</div>
-          <div class="logo-sub">ISA Exam Study</div>
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="logo-row">
+          <span class="logo-icon">🌳</span>
+          <div>
+            <div class="logo-text">ArborLens Prep</div>
+            <div class="logo-sub">ISA Exam Study</div>
+          </div>
+        </div>
+        <div class="overall-badge">
+          <div class="overall-pct" id="overall-pct">0%</div>
+          <div class="overall-label">Overall</div>
+          <div class="readiness-status" id="readiness-status">Not Started Yet</div>
         </div>
       </div>
-      <div class="overall-badge">
-        <div class="overall-pct" id="overall-pct">0%</div>
-        <div class="overall-label">Overall</div>
+      <div class="overall-bar-wrap">
+        <div class="overall-bar-fill" id="overall-bar" style="width: 0%"></div>
       </div>
-    </div>
-    <div class="overall-bar-wrap">
-      <div class="overall-bar-fill" id="overall-bar" style="width: 0%"></div>
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="main">
+  <!-- PAGE WRAP -->
+  <div class="page-wrap">
 
-    <!-- STATS -->
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-number" id="stat-answered">0</div>
-        <div class="stat-label">Answered</div>
+    <!-- LEFT COL -->
+    <div class="left-col">
+
+      <!-- MOBILE STATS -->
+      <div class="stats-grid" style="margin-bottom: 16px;" id="mobile-stats">
+        <div class="stat-item" style="background:white; border-radius:10px; padding:12px; box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <div class="stat-number" id="stat-answered">0</div>
+          <div class="stat-label">Answered</div>
+        </div>
+        <div class="stat-item" style="background:white; border-radius:10px; padding:12px; box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <div class="stat-number" id="stat-accuracy">0%</div>
+          <div class="stat-label">Accuracy</div>
+        </div>
+        <div class="stat-item" style="background:white; border-radius:10px; padding:12px; box-shadow:0 1px 3px rgba(0,0,0,0.06);">
+          <div class="stat-number" id="stat-ready">0/10</div>
+          <div class="stat-label">Strong+</div>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number" id="stat-accuracy">0%</div>
-        <div class="stat-label">Accuracy</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number" id="stat-ready">0/10</div>
-        <div class="stat-label">Strong+</div>
-      </div>
+
+      <!-- START BUTTON -->
+      <button class="cta-button" onclick="startStudy()">
+        <span>📖</span>
+        <span>Start Studying</span>
+      </button>
+
+      <!-- DOMAIN LIST -->
+      <div class="section-label">Your Progress by Domain</div>
+      <div class="domain-list" id="domain-list"></div>
+
     </div>
 
-    <!-- START BUTTON -->
-    <button class="cta-button" onclick="startStudy()">
-      <span>📖</span>
-      <span>Start Studying</span>
-    </button>
+    <!-- RIGHT COL (desktop sidebar) -->
+    <div class="right-col">
 
-    <!-- DOMAIN LIST -->
-    <div class="section-label">Your Progress by Domain</div>
+      <!-- WELCOME CARD -->
+      <div class="welcome-card">
+        <div class="welcome-title">Welcome to ArborLens Prep</div>
+        <div class="welcome-body">Your free study tool for the ISA Certified Arborist exam. Answer questions, track your progress by domain, and know exactly where to focus before exam day.</div>
+      </div>
 
-    <div class="domain-list" id="domain-list">
-      <!-- Populated by JS -->
+      <!-- STATS CARD -->
+      <div class="stats-card">
+        <div class="stats-card-title">Your Stats</div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number" id="stat-answered-d">0</div>
+            <div class="stat-label">Answered</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="stat-accuracy-d">0%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" id="stat-ready-d">0/10</div>
+            <div class="stat-label">Strong+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEXT UP CARD -->
+      <div class="next-card">
+        <div class="next-card-title">Suggested Next</div>
+        <div class="next-domain" id="next-domain">Tree Biology</div>
+        <div class="next-domain-sub" id="next-domain-sub">Start here to build your foundation</div>
+      </div>
+
+      <!-- DESKTOP START BUTTON -->
+      <button class="cta-button" onclick="startStudy()">
+        <span>📖</span>
+        <span>Start Studying</span>
+      </button>
+
     </div>
 
-  </main>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="free-label">ArborLens Prep is free. Keep it that way.</div>
-    <button class="support-button" onclick="supportClick()">Support ArborLens Prep</button>
+    <div class="footer-left">
+      <div class="free-label" id="free-label">Free forever. No catch.</div>
+      <button class="support-button" onclick="supportClick()">Support ArborLens Prep</button>
+    </div>
     <div class="disclaimer">ArborLens Prep is an independent study tool and is not affiliated with or endorsed by the International Society of Arboriculture.</div>
   </footer>
 
@@ -424,8 +604,34 @@
       { min: 90, max: 100, label: "Exam Ready",  marker: "✅", cls: "tier-exam-ready",  color: "#84BD00" }
     ];
 
+    const FREE_PHRASES = [
+      "Free forever. No catch.",
+      "Built for arborists, by an arborist.",
+      "Always free to study.",
+      "We're on your side.",
+      "Free to use. Always.",
+      "Built with dirt under our fingernails.",
+      "No paywalls. No pressure.",
+      "For the climbers, the planters, the pruners."
+    ];
+
+    const READINESS_LEVELS = [
+      { max: 0,   label: "Not Started Yet",    color: "#c5c5c5" },
+      { max: 20,  label: "Just Getting Started", color: "#c5c5c5" },
+      { max: 40,  label: "Building Foundation", color: "#e0a000" },
+      { max: 60,  label: "Making Progress",     color: "#e0a000" },
+      { max: 75,  label: "Getting Stronger",    color: "#7A9A01" },
+      { max: 85,  label: "Almost There",        color: "#84BD00" },
+      { max: 94,  label: "Nearly Exam Ready",   color: "#84BD00" },
+      { max: 100, label: "Take That Exam",      color: "#ffffff" }
+    ];
+
     function getTier(confidence) {
       return TIERS.find(t => confidence >= t.min && confidence <= t.max) || TIERS[0];
+    }
+
+    function getReadinessLevel(pct) {
+      return READINESS_LEVELS.find(r => pct <= r.max) || READINESS_LEVELS[READINESS_LEVELS.length - 1];
     }
 
     function loadProgress() {
@@ -448,6 +654,11 @@
       return Math.round(blended * volumeFactor * 100);
     }
 
+    function setFreePhrase() {
+      const phrase = FREE_PHRASES[Math.floor(Math.random() * FREE_PHRASES.length)];
+      document.getElementById('free-label').textContent = phrase;
+    }
+
     function renderDashboard() {
       const progress = loadProgress();
       const list = document.getElementById('domain-list');
@@ -457,6 +668,8 @@
       let totalAnswered = 0;
       let totalCorrect = 0;
       let strongCount = 0;
+      let lowestDomain = null;
+      let lowestConf = 101;
 
       DOMAINS.forEach(domain => {
         const data = progress[domain.id] || { attempts: 0, correct: 0, recent: [] };
@@ -467,6 +680,11 @@
         totalAnswered += data.attempts;
         totalCorrect += data.correct;
         if (confidence >= 75) strongCount++;
+
+        if (confidence < lowestConf) {
+          lowestConf = confidence;
+          lowestDomain = domain;
+        }
 
         const card = document.createElement('div');
         card.className = 'domain-card';
@@ -489,13 +707,32 @@
       });
 
       const overallPct = Math.round(totalConfidence / DOMAINS.length);
+      const readiness = getReadinessLevel(overallPct);
+
       document.getElementById('overall-pct').textContent = overallPct + '%';
       document.getElementById('overall-bar').style.width = overallPct + '%';
-      document.getElementById('stat-answered').textContent = totalAnswered;
-      document.getElementById('stat-accuracy').textContent = totalAnswered > 0
-        ? Math.round(totalCorrect / totalAnswered * 100) + '%'
-        : '0%';
-      document.getElementById('stat-ready').textContent = strongCount + '/10';
+
+      const statusEl = document.getElementById('readiness-status');
+      statusEl.textContent = readiness.label;
+      statusEl.style.color = readiness.color;
+
+      const answered = totalAnswered;
+      const accuracy = answered > 0 ? Math.round(totalCorrect / answered * 100) + '%' : '0%';
+      const ready = strongCount + '/10';
+
+      document.getElementById('stat-answered').textContent = answered;
+      document.getElementById('stat-accuracy').textContent = accuracy;
+      document.getElementById('stat-ready').textContent = ready;
+      document.getElementById('stat-answered-d').textContent = answered;
+      document.getElementById('stat-accuracy-d').textContent = accuracy;
+      document.getElementById('stat-ready-d').textContent = ready;
+
+      if (lowestDomain) {
+        document.getElementById('next-domain').textContent = lowestDomain.name;
+        document.getElementById('next-domain-sub').textContent = lowestConf === 0
+          ? 'You have not started this domain yet'
+          : 'Your weakest domain right now. Focus here.';
+      }
     }
 
     function startStudy() {
@@ -511,9 +748,9 @@
       alert('Thank you for wanting to support ArborLens Prep. Coming soon.');
     }
 
+    setFreePhrase();
     renderDashboard();
   </script>
 
 </body>
 </html>
-
