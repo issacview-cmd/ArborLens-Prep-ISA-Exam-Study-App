@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ArborLens Prep - Free ISA Certified Arborist Exam Study App" />
+  <meta name="description" content="ArborLens Prep - ISA Certified Arborist Exam Study App" />
   <meta name="theme-color" content="#046A38" />
   <title>ArborLens Prep</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --green-primary: #046A38;
       --green-mid: #7A9A01;
       --green-accent: #84BD00;
-      --white: #ffffff;
       --off-white: #f7f9f4;
       --light-gray: #e8ede4;
       --text-dark: #1a2e1a;
@@ -40,7 +35,6 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
     .header {
       background: var(--green-primary);
       color: white;
@@ -68,10 +62,7 @@
       gap: 10px;
     }
 
-    .logo-icon {
-      font-size: 28px;
-      line-height: 1;
-    }
+    .logo-icon { font-size: 28px; line-height: 1; }
 
     .logo-text {
       font-size: 22px;
@@ -92,7 +83,7 @@
       border-radius: 20px;
       padding: 6px 14px;
       text-align: center;
-      min-width: 90px;
+      min-width: 100px;
     }
 
     .overall-pct {
@@ -130,11 +121,10 @@
       transition: width 0.8s ease;
     }
 
-    /* LAYOUT */
     .page-wrap {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 20px 16px 100px;
+      padding: 20px 16px 120px;
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
@@ -143,15 +133,10 @@
     @media (min-width: 768px) {
       .page-wrap {
         grid-template-columns: 1fr 380px;
-        grid-template-rows: auto;
         align-items: start;
-        padding: 28px 24px 60px;
+        padding: 28px 24px 80px;
       }
-
-      .left-col {
-        grid-column: 1;
-      }
-
+      .left-col { grid-column: 1; }
       .right-col {
         grid-column: 2;
         position: sticky;
@@ -159,7 +144,6 @@
       }
     }
 
-    /* SECTION LABEL */
     .section-label {
       font-size: 10px;
       font-weight: 600;
@@ -170,7 +154,6 @@
       margin-top: 4px;
     }
 
-    /* CTA BUTTON */
     .cta-button {
       width: 100%;
       background: var(--green-primary);
@@ -189,16 +172,9 @@
       transition: background 0.15s ease;
     }
 
-    .cta-button:hover {
-      background: #035a30;
-    }
+    .cta-button:hover { background: #035a30; }
+    .cta-button:active { background: #024a28; transform: scale(0.99); }
 
-    .cta-button:active {
-      background: #024a28;
-      transform: scale(0.99);
-    }
-
-    /* DOMAIN CARDS */
     .domain-list {
       display: flex;
       flex-direction: column;
@@ -225,21 +201,17 @@
       border-color: var(--light-gray);
     }
 
-    .domain-card:active {
-      transform: scale(0.99);
-    }
+    .domain-card:active { transform: scale(0.99); }
 
     .domain-marker {
-      font-size: 20px;
+      font-size: 22px;
       flex-shrink: 0;
-      width: 28px;
+      width: 30px;
       text-align: center;
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
     }
 
-    .domain-info {
-      flex: 1;
-      min-width: 0;
-    }
+    .domain-info { flex: 1; min-width: 0; }
 
     .domain-name {
       font-size: 14px;
@@ -265,15 +237,9 @@
       transition: width 0.6s ease;
     }
 
-    .domain-meta {
-      font-size: 11px;
-      color: var(--text-light);
-    }
+    .domain-meta { font-size: 11px; color: var(--text-light); }
 
-    .domain-right {
-      text-align: right;
-      flex-shrink: 0;
-    }
+    .domain-right { text-align: right; flex-shrink: 0; }
 
     .domain-pct {
       font-size: 18px;
@@ -289,7 +255,6 @@
       margin-top: 2px;
     }
 
-    /* TIER COLORS */
     .tier-not-started { color: var(--not-started); }
     .tier-needs-work { color: var(--needs-work); }
     .tier-learning { color: var(--learning); }
@@ -297,7 +262,6 @@
     .tier-strong { color: var(--strong); }
     .tier-exam-ready { color: var(--exam-ready); }
 
-    /* STATS CARD */
     .stats-card {
       background: white;
       border-radius: 14px;
@@ -321,9 +285,7 @@
       gap: 12px;
     }
 
-    .stat-item {
-      text-align: center;
-    }
+    .stat-item { text-align: center; }
 
     .stat-number {
       font-size: 26px;
@@ -339,7 +301,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* WELCOME CARD - desktop only */
     .welcome-card {
       background: var(--green-primary);
       color: white;
@@ -350,9 +311,7 @@
     }
 
     @media (min-width: 768px) {
-      .welcome-card {
-        display: block;
-      }
+      .welcome-card { display: block; }
     }
 
     .welcome-title {
@@ -367,7 +326,6 @@
       line-height: 1.6;
     }
 
-    /* NEXT UP CARD */
     .next-card {
       background: white;
       border-radius: 14px;
@@ -392,9 +350,80 @@
       margin-bottom: 4px;
     }
 
-    .next-domain-sub {
+    .next-domain-sub { font-size: 12px; color: var(--text-light); }
+
+    /* NAME PROMPT MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 24px;
+      max-width: 360px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .modal-icon { font-size: 36px; margin-bottom: 12px; }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .modal-body {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .modal-input {
+      width: 100%;
+      border: 1.5px solid var(--light-gray);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 16px;
+      color: var(--text-dark);
+      outline: none;
+      margin-bottom: 14px;
+      transition: border-color 0.15s ease;
+    }
+
+    .modal-input:focus { border-color: var(--green-primary); }
+
+    .modal-button {
+      width: 100%;
+      background: var(--green-primary);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 13px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .modal-button:hover { background: #035a30; }
+
+    .modal-skip {
+      margin-top: 10px;
       font-size: 12px;
       color: var(--text-light);
+      cursor: pointer;
+      text-decoration: underline;
     }
 
     /* FOOTER */
@@ -405,9 +434,17 @@
       right: 0;
       background: white;
       border-top: 1px solid var(--light-gray);
-      padding: 12px 16px 20px;
-      text-align: center;
+      padding: 10px 16px 16px;
       z-index: 100;
+    }
+
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
     }
 
     .support-button {
@@ -415,60 +452,73 @@
       border: 1.5px solid var(--green-primary);
       color: var(--green-primary);
       border-radius: 20px;
-      padding: 7px 20px;
-      font-size: 13px;
+      padding: 6px 16px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
-      margin-bottom: 8px;
       transition: all 0.15s ease;
     }
 
-    .support-button:hover {
-      background: var(--green-primary);
-      color: white;
+    .support-button:hover { background: var(--green-primary); color: white; }
+
+    .feedback-button {
+      background: none;
+      border: 1.5px solid var(--text-light);
+      color: var(--text-light);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    .free-label {
+    .feedback-button:hover { border-color: var(--green-primary); color: var(--green-primary); }
+
+    .footer-phrase {
       font-size: 11px;
       color: var(--text-light);
-      margin-bottom: 6px;
+      text-align: center;
+      margin-bottom: 5px;
     }
 
     .disclaimer {
       font-size: 9px;
       color: var(--not-started);
       line-height: 1.4;
+      text-align: center;
       padding: 0 8px;
     }
 
     @media (min-width: 768px) {
       .footer {
-        padding: 12px 24px 16px;
-        display: flex;
-        align-items: center;
+        padding: 10px 24px 14px;
+      }
+      .footer-top {
         justify-content: space-between;
-        gap: 20px;
       }
-
-      .footer-left {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .free-label {
-        margin-bottom: 0;
-      }
-
       .disclaimer {
         text-align: right;
-        padding: 0;
         max-width: 400px;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- NAME MODAL -->
+  <div class="modal-overlay" id="name-modal" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-icon">🌳</div>
+      <div class="modal-title">Welcome to ArborLens Prep</div>
+      <div class="modal-body">What should we call you? We'll keep it right here on your device.</div>
+      <input class="modal-input" id="name-input" type="text" placeholder="Your name or nickname" maxlength="30" />
+      <button class="modal-button" onclick="saveName()">Let's Study</button>
+      <div class="modal-skip" onclick="skipName()">Skip for now</div>
+    </div>
+  </div>
 
   <!-- HEADER -->
   <header class="header">
@@ -478,7 +528,7 @@
           <span class="logo-icon">🌳</span>
           <div>
             <div class="logo-text">ArborLens Prep</div>
-            <div class="logo-sub">ISA Exam Study</div>
+            <div class="logo-sub" id="header-sub">ISA Exam Study</div>
           </div>
         </div>
         <div class="overall-badge">
@@ -496,11 +546,9 @@
   <!-- PAGE WRAP -->
   <div class="page-wrap">
 
-    <!-- LEFT COL -->
     <div class="left-col">
 
-      <!-- MOBILE STATS -->
-      <div class="stats-grid" style="margin-bottom: 16px;" id="mobile-stats">
+      <div class="stats-grid" style="margin-bottom: 16px;">
         <div class="stat-item" style="background:white; border-radius:10px; padding:12px; box-shadow:0 1px 3px rgba(0,0,0,0.06);">
           <div class="stat-number" id="stat-answered">0</div>
           <div class="stat-label">Answered</div>
@@ -515,28 +563,23 @@
         </div>
       </div>
 
-      <!-- START BUTTON -->
       <button class="cta-button" onclick="startStudy()">
         <span>📖</span>
         <span>Start Studying</span>
       </button>
 
-      <!-- DOMAIN LIST -->
       <div class="section-label">Your Progress by Domain</div>
       <div class="domain-list" id="domain-list"></div>
 
     </div>
 
-    <!-- RIGHT COL (desktop sidebar) -->
     <div class="right-col">
 
-      <!-- WELCOME CARD -->
       <div class="welcome-card">
-        <div class="welcome-title">Welcome to ArborLens Prep</div>
-        <div class="welcome-body">Your free study tool for the ISA Certified Arborist exam. Answer questions, track your progress by domain, and know exactly where to focus before exam day.</div>
+        <div class="welcome-title" id="welcome-title">Welcome to ArborLens Prep</div>
+        <div class="welcome-body">Your study tool for the ISA Certified Arborist exam. Answer questions, track your progress by domain, and know exactly where to focus before exam day. Your progress stays on your device.</div>
       </div>
 
-      <!-- STATS CARD -->
       <div class="stats-card">
         <div class="stats-card-title">Your Stats</div>
         <div class="stats-grid">
@@ -555,14 +598,12 @@
         </div>
       </div>
 
-      <!-- NEXT UP CARD -->
       <div class="next-card">
         <div class="next-card-title">Suggested Next</div>
         <div class="next-domain" id="next-domain">Tree Biology</div>
         <div class="next-domain-sub" id="next-domain-sub">Start here to build your foundation</div>
       </div>
 
-      <!-- DESKTOP START BUTTON -->
       <button class="cta-button" onclick="startStudy()">
         <span>📖</span>
         <span>Start Studying</span>
@@ -574,11 +615,12 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-left">
-      <div class="free-label" id="free-label">Free forever. No catch.</div>
+    <div class="footer-phrase" id="footer-phrase">Built for arborists, by an arborist.</div>
+    <div class="footer-top">
       <button class="support-button" onclick="supportClick()">Support ArborLens Prep</button>
+      <a class="feedback-button" href="mailto:feedback@arborlens.com?subject=ArborLens Prep Feedback">Send Feedback</a>
     </div>
-    <div class="disclaimer">ArborLens Prep is an independent study tool and is not affiliated with or endorsed by the International Society of Arboriculture.</div>
+    <div class="disclaimer">ArborLens Prep is an independent study tool and is not affiliated with or endorsed by the International Society of Arboriculture. Your progress is stored locally on your device only.</div>
   </footer>
 
   <script>
@@ -604,26 +646,31 @@
       { min: 90, max: 100, label: "Exam Ready",  marker: "✅", cls: "tier-exam-ready",  color: "#84BD00" }
     ];
 
-    const FREE_PHRASES = [
-      "Free forever. No catch.",
-      "Built for arborists, by an arborist.",
-      "Always free to study.",
-      "We're on your side.",
-      "Free to use. Always.",
-      "Built with dirt under our fingernails.",
-      "No paywalls. No pressure.",
-      "For the climbers, the planters, the pruners."
+    const READINESS_LEVELS = [
+      { max: 0,   label: "Not Started Yet",     color: "#c5c5c5" },
+      { max: 20,  label: "Just Getting Started", color: "#c5c5c5" },
+      { max: 40,  label: "Building Foundation",  color: "#e0a000" },
+      { max: 60,  label: "Making Progress",      color: "#e0a000" },
+      { max: 75,  label: "Getting Stronger",     color: "#7A9A01" },
+      { max: 85,  label: "Almost There",         color: "#84BD00" },
+      { max: 94,  label: "Nearly Exam Ready",    color: "#84BD00" },
+      { max: 100, label: "Take That Exam",       color: "#ffffff" }
     ];
 
-    const READINESS_LEVELS = [
-      { max: 0,   label: "Not Started Yet",    color: "#c5c5c5" },
-      { max: 20,  label: "Just Getting Started", color: "#c5c5c5" },
-      { max: 40,  label: "Building Foundation", color: "#e0a000" },
-      { max: 60,  label: "Making Progress",     color: "#e0a000" },
-      { max: 75,  label: "Getting Stronger",    color: "#7A9A01" },
-      { max: 85,  label: "Almost There",        color: "#84BD00" },
-      { max: 94,  label: "Nearly Exam Ready",   color: "#84BD00" },
-      { max: 100, label: "Take That Exam",      color: "#ffffff" }
+    const PHRASES = [
+      "Built for arborists, by an arborist.",
+      "An app by Isaac, a certified arborist.",
+      "From one arborist to another.",
+      "Your progress stays on your device.",
+      "No accounts. No tracking. Just studying.",
+      "Built with dirt under our fingernails.",
+      "For the climbers, the planters, the pruners.",
+      "Chainsaws optional. Knowledge required.",
+      "Study up. Climb safe.",
+      "Know your tree. Pass your test.",
+      "No trees were harmed in the making of this app.",
+      "Better than flashcards. Worse than a mentor.",
+      "Peer reviewed by squirrels."
     ];
 
     function getTier(confidence) {
@@ -635,11 +682,8 @@
     }
 
     function loadProgress() {
-      try {
-        return JSON.parse(localStorage.getItem('arborlens-progress')) || {};
-      } catch {
-        return {};
-      }
+      try { return JSON.parse(localStorage.getItem('arborlens-progress')) || {}; }
+      catch { return {}; }
     }
 
     function calcConfidence(data) {
@@ -654,9 +698,43 @@
       return Math.round(blended * volumeFactor * 100);
     }
 
-    function setFreePhrase() {
-      const phrase = FREE_PHRASES[Math.floor(Math.random() * FREE_PHRASES.length)];
-      document.getElementById('free-label').textContent = phrase;
+    function getName() {
+      return localStorage.getItem('arborlens-name') || null;
+    }
+
+    function saveName() {
+      const input = document.getElementById('name-input').value.trim();
+      const name = input || null;
+      if (name) localStorage.setItem('arborlens-name', name);
+      else localStorage.setItem('arborlens-name', 'skipped');
+      document.getElementById('name-modal').style.display = 'none';
+      applyName(name);
+    }
+
+    function skipName() {
+      localStorage.setItem('arborlens-name', 'skipped');
+      document.getElementById('name-modal').style.display = 'none';
+    }
+
+    function applyName(name) {
+      if (name && name !== 'skipped') {
+        document.getElementById('welcome-title').textContent = 'Welcome back, ' + name;
+        document.getElementById('header-sub').textContent = 'Good to see you, ' + name;
+      }
+    }
+
+    function checkNamePrompt() {
+      const stored = localStorage.getItem('arborlens-name');
+      if (!stored) {
+        document.getElementById('name-modal').style.display = 'flex';
+      } else {
+        applyName(stored);
+      }
+    }
+
+    function setPhrase() {
+      const phrase = PHRASES[Math.floor(Math.random() * PHRASES.length)];
+      document.getElementById('footer-phrase').textContent = phrase;
     }
 
     function renderDashboard() {
@@ -694,7 +772,7 @@
           <div class="domain-info">
             <div class="domain-name">${domain.name}</div>
             <div class="domain-bar-wrap">
-              <div class="domain-bar-fill" style="width: ${confidence}%; background: ${tier.color}"></div>
+              <div class="domain-bar-fill" style="width:${confidence}%; background:${tier.color}"></div>
             </div>
             <div class="domain-meta">${data.attempts} answered</div>
           </div>
@@ -736,19 +814,20 @@
     }
 
     function startStudy() {
-      alert('Quiz engine coming soon. The shell is live!');
+      alert('Quiz engine coming soon.');
     }
 
     function selectDomain(id) {
       const domain = DOMAINS.find(d => d.id === id);
-      alert('Domain selected: ' + domain.name + '\nQuiz engine coming soon.');
+      alert('Domain: ' + domain.name + '\nQuiz engine coming soon.');
     }
 
     function supportClick() {
       alert('Thank you for wanting to support ArborLens Prep. Coming soon.');
     }
 
-    setFreePhrase();
+    setPhrase();
+    checkNamePrompt();
     renderDashboard();
   </script>
 
